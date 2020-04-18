@@ -1,0 +1,55 @@
+AllCops:
+  TargetRubyVersion: 2.7.0
+
+Layout/LineLength:
+  Enabled: false
+  Max: 100
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Style/ExponentialNotation:
+  Enabled: true
+  EnforcedStyle: scientific
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'web/routes/**/*.rb'
+    - 'config/**/*.rb'
+Metrics/MethodLength:
+  Enabled: false
+  Max: 20
+Metrics/AbcSize:
+  Enabled: false
+  Max: 20
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*.rb'
+
+Style/AsciiComments:
+  Enabled: false
+Style/FormatStringToken:
+  EnforcedStyle: template
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/Documentation:
+  Enabled: false
+Style/LambdaCall:
+  EnforcedStyle: braces
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/**/*.rb'
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: false # unsafe autocorrection
+Style/HashTransformValues:
+  Enabled: false # unsafe autocorrection
