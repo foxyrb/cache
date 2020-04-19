@@ -5,7 +5,6 @@ require "foxy/cache"
 
 require "securerandom"
 EXECUTION = SecureRandom.uuid.split("-").first
-Thread.current[:request_id] = EXECUTION
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -7,7 +7,6 @@ module Foxy
   module Cache
     class Manager
       ITSELF = :itself.to_proc.freeze
-      MutexLocker = Hash.new { |h, k| h[k] = Mutex.new }.to_proc
 
       class Result
         attr_reader :metadata, :content
@@ -57,7 +56,7 @@ module Foxy
       end
 
       def clean_key(key)
-        ["", *key.map { |fragment| fragment.to_s.gsub(/[^a-z0-9\-]+/i, "_") }]
+        key.map { |fragment| fragment.to_s.gsub(/[^a-z0-9\-]+/i, "_") }
       end
 
       def get(store, key, loader)
@@ -112,17 +111,3 @@ module Foxy
     end
   end
 end
-
-# semaphore = Mutex.new
-
-# a = Thread.new {
-#   semaphore.synchronize {
-#     # access shared resource
-#   }
-# }
-
-# b = Thread.new {
-#   semaphore.synchronize {
-#     # access shared resource
-#   }
-# }

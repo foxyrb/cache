@@ -6,8 +6,9 @@ module Foxy
   module Cache
     class Error < StandardError; end
 
-    def self.new(*args, **kws)
-      Foxy::Cache::Manager.new(*args, **kws)
+    def self.new(*args, store: Foxy::Cache::Store::Fs.new, namespace: nil, **kws)
+      store = Foxy::Cache::Store::Namespace.new(namespace: namespace, store: store) if namespace
+      Foxy::Cache::Manager.new(*args, store: store, **kws)
     end
   end
 end

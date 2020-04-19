@@ -7,7 +7,7 @@ RSpec.describe Foxy::Cache::Store do
     context "store: #{store}" do
       subject do
         Foxy::Cache::Store::Namespace.new(
-          namespace: "#{__dir__}/tmp/#{EXECUTION}",
+          namespace: "tmp/#{EXECUTION}",
           store: store.new
         )
       end
